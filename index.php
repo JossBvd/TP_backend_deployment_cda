@@ -13,7 +13,6 @@ $podcasts = $pdo->query("SELECT * FROM podcasts ORDER BY created_at DESC")->fetc
 </head>
 <body class="bg-light">
 
-
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="text-primary">🎙️ Podcasts backend</h1>
