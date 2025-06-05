@@ -6,6 +6,17 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/JossBvd/TP_backend_deployment_cda'
             }
         }
+        stage('Sonarcube') {
+            steps {
+                sh """
+                    sonar-scanner \
+                    -Dsonar.projectKey=jocelyn-td-backend \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=https://669b-212-114-26-208.ngrok-free.app \
+                    -Dsonar.token=${SONAR_TOKEN}
+                """
+            }
+        }
         stage('Deploy via FTP') {
             steps {
                 sh '''
